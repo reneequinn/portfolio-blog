@@ -25,7 +25,9 @@
   --heading-font: 'Poppins', Verdana, Geneva, sans-serif;
   --heading-weight: 600;
   --letter-spacing: 0.5px;
+  --base-font-size: 16px;
   --line-height: 1.5;
+  --vr-unit: calc(var(--base-font-size) * var(--line-height));
 
   // font-sizes:
   --nav-heading: 1.5rem;
@@ -33,6 +35,9 @@
   --heading-two: 2.25rem;
   --heading-three: 2rem;
   --heading-four: 1.75rem;
+  --heading-five: 1.5rem;
+  --heading-six: 1.25rem;
+
   // shadows and background colours:
   --box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
   --box-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1),

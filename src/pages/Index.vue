@@ -24,11 +24,8 @@ export default {
 </script>
 
 <style lang="scss">
-.hero {
-  .lead {
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-    font-size: 1.25rem;
-  }
+.lead {
+  font-size: var(--heading-six);
+  font-weight: var(--heading-weight);
 }
 </style>

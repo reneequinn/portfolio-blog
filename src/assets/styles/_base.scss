@@ -32,7 +32,7 @@ ul {
 
 html {
   box-sizing: border-box;
-  font-size: 16px;
+  font-size: var(--base-font-size);
   font-family: var(--body-font);
 }
 
@@ -92,10 +92,40 @@ h6 {
   letter-spacing: var(--letter-spacing);
 }
 
-h2 {
+h1 {
   font-size: var(--heading-one);
+  margin: calc(var(--vr-unit) * 2) 0;
+}
+
+h2 {
+  font-size: var(--heading-two);
+  margin: calc(var(--vr-unit) * 1.75) 0;
 }
 
 h3 {
-  font-size: var(--heading-two);
+  font-size: var(--heading-three);
+  margin: calc(var(--vr-unit) * 1.5) 0;
+}
+
+h4 {
+  font-size: var(--heading-four);
+  margin: calc(var(--vr-unit) * 1.25) 0;
+}
+
+h5 {
+  font-size: var(--heading-five);
+}
+
+h6 {
+  font-size: var(--heading-six);
+}
+
+p {
+  font-size: var(--base-font-size);
+}
+
+h5,
+h6,
+p {
+  margin: var(--vr-unit) 0;
 }

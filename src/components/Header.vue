@@ -1,7 +1,7 @@
 <template>
   <header>
     <div class="container flex-container">
-      <h1><g-link to="/">Renee Quinn</g-link></h1>
+      <h2><g-link to="/">Renee Quinn</g-link></h2>
       <nav>
         <ul>
           <li>
@@ -49,9 +49,13 @@ header {
     }
   }
 
-  h1 a {
+  h2 {
+    margin: 0;
     font-size: var(--nav-heading);
-    padding: 0;
+
+    a {
+      padding: 0;
+    }
   }
 
   ul {
