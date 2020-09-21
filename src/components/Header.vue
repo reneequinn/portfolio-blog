@@ -4,7 +4,12 @@
       <h2><g-link to="/">Renee Quinn</g-link></h2>
       <div class="switch-container">
         <label for="theme-checkbox" class="theme-switch">
-          <input type="checkbox" id="theme-checkbox" @change="toggleTheme" />
+          <input
+            type="checkbox"
+            id="theme-checkbox"
+            @change="toggleTheme"
+            role="switch"
+          />
           <div class="slider round"></div>
           <svg
             class="sun"
@@ -116,9 +121,15 @@ header {
     transition: color 300ms ease-out;
     transition: border 200ms ease-out;
 
-    &:hover {
+    &:visited {
+      color: var(--font-color);
+    }
+
+    &:hover,
+    &:focus {
       color: var(--primary-dk);
       border-bottom: 2px var(--primary-dk) solid;
+      background: none;
     }
   }
 
@@ -202,11 +213,22 @@ header {
     right: 6px;
   }
 
-  input {
-    display: none;
+  input[type='checkbox'] {
+    position: absolute;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+    clip: rect(1px, 1px, 1px, 1px);
   }
 
-  input:checked + .slider:before {
+  input[type='checkbox']:focus + .slider {
+    outline-color: rgb(0, 95, 204);
+    outline-offset: 1px;
+    outline-style: auto;
+    outline-width: 1px;
+  }
+
+  input[type='checkbox']:checked + .slider:before {
     top: 50%;
     transform: translateX(26px) translateY(-50%);
   }

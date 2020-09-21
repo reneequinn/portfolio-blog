@@ -1,6 +1,7 @@
 .dark-theme {
   // dark theme colours
   --primary: var(--sea-green);
+  --primary-hover: var(--sea-green-hover);
   --primary-dk: var(--dk-sea-green);
   --font-color: var(--lt-grey-3);
   --background: var(--black);
@@ -44,6 +45,7 @@ html {
 
 body {
   --primary: var(--hot-pink);
+  --primary-hover: var(--hot-pink-hover);
   --primary-dk: var(--dk-hot-pink);
   color: var(--font-color);
   background: var(--background);
@@ -119,4 +121,20 @@ h6 {
 p {
   font-size: var(--base-font-size);
   margin: var(--vr-unit) 0;
+}
+
+a {
+  color: var(--primary);
+
+  &:visited {
+    color: var(--primary-dk);
+  }
+
+  &:hover,
+  &:focus {
+    cursor: pointer;
+    color: var(--font-color);
+    background: linear-gradient(transparent 70%, var(--primary-hover) 0);
+    text-decoration: none;
+  }
 }
