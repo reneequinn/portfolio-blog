@@ -2,6 +2,34 @@
   <header>
     <div class="container flex-container">
       <h2><g-link to="/">Renee Quinn</g-link></h2>
+      <div class="switch-container">
+        <label for="theme-checkbox" class="theme-switch">
+          <input type="checkbox" id="theme-checkbox" @change="toggleTheme" />
+          <div class="slider round"></div>
+          <svg
+            class="sun"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
+              clip-rule="evenodd"
+            ></path>
+          </svg>
+          <svg
+            class="moon"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"
+            ></path>
+          </svg>
+        </label>
+      </div>
       <button
         class="menu-btn"
         @click="toggleMenu"
@@ -60,6 +88,9 @@ export default {
     toggleMenu() {
       this.isOpen = !this.isOpen;
     },
+    toggleTheme() {
+      document.body.classList.toggle('dark-theme');
+    },
   },
 };
 </script>
@@ -101,23 +132,104 @@ header {
   }
 }
 
+// theme toggle styles
+.switch-container {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+  margin-right: 1rem;
+}
+
+.theme-switch {
+  display: inline-block;
+  position: relative;
+  width: 60px;
+  height: 34px;
+
+  &:hover {
+    .slider {
+      background: var(--primary-dk);
+    }
+  }
+  .slider {
+    background: var(--primary);
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    transition: 0.4s;
+
+    &:before {
+      background: var(--bg-elevation-1);
+      content: '';
+      width: 26px;
+      height: 26px;
+      z-index: 10;
+      position: absolute;
+      left: 4px;
+      top: 50%;
+      transform: translateY(-50%);
+      transition: 0.4s;
+    }
+
+    &.round {
+      border-radius: 34px;
+    }
+
+    &.round:before {
+      border-radius: 50%;
+    }
+  }
+
+  .sun,
+  .moon {
+    cursor: pointer;
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    top: 50%;
+    transform: translateY(-50%);
+    fill: var(--bg-elevation-1);
+  }
+
+  .sun {
+    left: 6px;
+  }
+
+  .moon {
+    right: 6px;
+  }
+
+  input {
+    display: none;
+  }
+
+  input:checked + .slider:before {
+    top: 50%;
+    transform: translateX(26px) translateY(-50%);
+  }
+}
+
 // hamburger button styles
 .menu-btn {
   padding: 0.5rem;
   display: flex;
   align-content: center;
-  border: var(--font-color) 2px solid;
-  border-radius: 5px;
+  border: none;
+  border-radius: 50%;
   cursor: pointer;
+  background: transparent;
+  color: var(--font-color);
 
   svg {
     fill: currentColor;
   }
 
   &:hover {
-    background: var(--bg-elevation-2);
+    background: var(--background);
     color: var(--primary-dk);
-    border-color: var(--primary-dk);
   }
 
   &.open {
@@ -169,7 +281,6 @@ nav {
   nav {
     display: inline-block;
     width: auto;
-    margin-left: auto;
 
     &.open {
       width: auto;
